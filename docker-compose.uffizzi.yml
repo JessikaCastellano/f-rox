@@ -1,0 +1,27 @@
+version: '3.7'
+
+x-uffizzi:
+  ingress:
+    service: rox
+    port: 3000
+
+services:
+  rox:
+    build:
+      context: https://github.com/JessikaCastellano/f-rox
+      dockerfile: /Dockerfile  
+    image: "${APP_IMAGE}"
+    ports:
+      - 3000:3000
+      - 3001:3001
+      - 9090:9090
+    environment:
+      - DEFAULT_LANGUAGE_CODE
+      - OTL_EXPORTER_ZIPKIN_URL
+      - OTL_EXPORTER_JAEGER_URL
+      - OTL_EXPORTER_PROMETHEUS_PORT
+      - OTL_EXPORTER_GCP_ENABLED
+      - EVENTS_SERVER_ENABLED
+      - LOGS_LEVEL
+   healthcheck:
+      disable: true
