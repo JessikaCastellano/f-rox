@@ -23,3 +23,5 @@ services:
       - OTL_EXPORTER_GCP_ENABLED
       - EVENTS_SERVER_ENABLED
       - LOGS_LEVEL
+   healthcheck:
+      disable: true
