@@ -7,9 +7,7 @@ x-uffizzi:
 
 services:
   rox:
-    build:
-      context: https://github.com/JessikaCastellano/f-rox
-      dockerfile: /Dockerfile  
+    build: . 
     image: "${APP_IMAGE}"
     ports:
       - 3000:3000
